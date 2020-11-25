@@ -10,32 +10,34 @@ export default new Vuex.Store({
       state.contacts.unshift(newContact);
     },
     remove(state, id) {
-      state.contacts.splice(id, 1);
+      state.contacts = state.contacts.filter(contact => contact.id !== id)
     },
     favorites(state, id) {
-      return state.contacts.filter((contact, index) =>
-        id === index ? contact.favorites = !contact.favorites : false
-      );
+      state.contacts.filter(contact => {
+        if (contact.id == id) {
+          contact.favorites = !contact.favorites
+        }
+      })
     }
   },
   state: {
     contacts: [
       {
-        id: 0,
+        id: 7,
         name: "Name",
         phone: "79023334455",
         icon: "http://www.nretnil.com/avatar/LawrenceEzekielAmos.png",
         favorites: false
       },
       {
-        id: 1,
+        id: 5,
         name: "Name 1",
         phone: "79023334456",
         icon: "http://www.nretnil.com/avatar/LawrenceEzekielAmos.png",
         favorites: true
       },
       {
-        id: 2,
+        id: 9,
         name: "Name 2",
         phone: "79023334456",
         icon: "http://www.nretnil.com/avatar/LawrenceEzekielAmos.png",
