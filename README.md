@@ -1,4 +1,4 @@
-# contacts
+# phone-book
 
 ## Project setup
 ```
